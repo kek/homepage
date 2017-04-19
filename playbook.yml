@@ -1,0 +1,11 @@
+---
+- hosts: pi
+  remote_user: pi
+  become: yes
+  tasks:
+    - name: Upgrade
+      apt:
+        upgrade: dist
+        update_cache: yes
+    - apt: name=mosh state=latest
+    - apt: name=fish state=latest
