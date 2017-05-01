@@ -1,0 +1,32 @@
+---
+- name: Install git
+  apt: name=git state=latest
+- name: add apt key for nodesource
+  apt_key: url=https://deb.nodesource.com/gpgkey/nodesource.gpg.key
+- name: add repo for nodesource
+  apt_repository:
+    repo: 'deb https://deb.nodesource.com/node_7.x {{ ansible_distribution_release }} main'
+    update_cache: yes
+- name: install nodejs
+  apt: name=nodejs state=latest
+# - name: Add Erlang Solutions repo
+#   apt:
+#     deb: https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb
+#     state: absent
+# - name: Update apt cache
+#   apt:
+#     update_cache: true
+# - name: Install Elixir
+#   apt: name=elixir
+# - name: Install hex
+#   command: mix local.hex
+# - name: Install Phoenix
+#   command: mix archive.install https://github.com/phoenixframework/archives/raw/master/phoenix_new.ez
+# - name: Install erlang-base-hipe
+#   apt: name=erlang-base-hipe state=latest
+# - name: Install build-essential
+#   apt: name=build-essential state=latest
+# - name: Install erlang-dev
+#   apt: name=erlang-dev state=latest
+# - name: Copy prod.secret.exs file
+#   copy: src=config/prod.secret.exs dest=/home/builder/prod.secret.exs owner=builder group=builder mode=600

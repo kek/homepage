@@ -2,3 +2,4 @@
 /wpa_supplicant.conf
 /.vagrant
 /playbook.retry
+/tmp

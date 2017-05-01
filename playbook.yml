@@ -1,11 +1,13 @@
 ---
 - hosts: pi
+  # strategy: debug
   remote_user: pi
   become: yes
+  roles:
+    - apt
+    - build
+    - elixir
   tasks:
-    - name: Upgrade
-      apt:
-        upgrade: dist
-        update_cache: yes
     - apt: name=mosh state=latest
     - apt: name=fish state=latest
+    - apt: name=tmux state=latest

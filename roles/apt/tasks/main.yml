@@ -1,0 +1,5 @@
+---
+# - name: Ensure apt-transport-https is at the latest version
+#   apt: name=apt-transport-https state=latest
+- name: Update all packages to the latest version
+  apt: upgrade=dist update_cache=yes
