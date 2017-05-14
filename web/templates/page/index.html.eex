@@ -1,1 +1,9 @@
 Välkommen på söndagsmys
+
+<ol>
+  <%= for name <- Map.keys(@present) do %>
+    <%= if Map.get(@present, name) == :pong do %>
+      <li><%= name %>
+    <% end %>
+  <% end %>
+</ol>
