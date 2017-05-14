@@ -7,8 +7,14 @@
   apt_repository:
     repo: 'deb https://deb.nodesource.com/node_7.x {{ ansible_distribution_release }} main'
     update_cache: yes
-- name: install nodejs
-  apt: name=nodejs state=latest
+- apt: name=nodejs state=latest
+- apt: name=build-essential state=latest
+- apt: name=ncurses-dev state=latest
+- apt: name=libncurses5-dev state=latest
+- apt: name=gettext state=latest
+- apt: name=autoconf state=latest
+
+
 # - name: Add Erlang Solutions repo
 #   apt:
 #     deb: https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb
