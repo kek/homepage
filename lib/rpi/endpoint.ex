@@ -1,5 +1,5 @@
 defmodule Hello.Endpoint do
-  use Phoenix.Endpoint, otp_app: :rpi
+  use Phoenix.Endpoint, otp_app: :hello
 
   socket "/socket", Hello.UserSocket
 
@@ -8,7 +8,7 @@ defmodule Hello.Endpoint do
   # You should set gzip to true if you are running phoenix.digest
   # when deploying your static files in production.
   plug Plug.Static,
-    at: "/", from: :rpi, gzip: false,
+    at: "/", from: :hello, gzip: false,
     only: ~w(css fonts images js favicon.ico robots.txt)
 
   # Code reloading can be explicitly enabled under the
