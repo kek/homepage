@@ -35,7 +35,7 @@ defmodule Hello.Endpoint do
   # Set :encryption_salt if you would also like to encrypt it.
   plug Plug.Session,
     store: :cookie,
-    key: "_rpi_key",
+    key: "_hello_key",
     signing_salt: "XW6Yd/qs"
 
   plug Hello.Router
