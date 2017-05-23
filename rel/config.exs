@@ -31,7 +31,17 @@ environment :prod do
   plugin Releases.Plugin.LinkConfig
   set include_erts: true
   set include_src: false
-  set cookie: :"nZ|WL}RI;{OmP%Tnlc2F[r:srLX2f;x@eLBS?iovAj@N($[.kMLea7Jm$/QDp2p&"
+  set cookie: Cookie.read()
+end
+
+defmodule Cookie do
+  def read do
+    'ansible-vault view cookie.txt'
+    |> :os.cmd()
+    |> List.to_string
+    |> String.trim
+    |> String.to_atom
+  end
 end
 
 # You may define one or more releases in this file.
