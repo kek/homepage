@@ -7,6 +7,17 @@
     - apt
     - build
     - elixir
+    - role: jdauphant.nginx
+      nginx_sites:
+        default:
+          - listen 80
+          - location / {
+            proxy_pass http://web;
+            proxy_set_header Host $host;
+            }
+      nginx_configs:
+        upstream:
+          - upstream web { server 127.0.0.1:5000; }
   tasks:
     - apt: name=mosh state=latest
     - apt: name=fish state=latest

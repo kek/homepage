@@ -1,5 +1,7 @@
 # How To
+
 ## wpa-supplicant.conf
+
 ```
 country=GB
 ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
@@ -12,8 +14,11 @@ network={
 ```
 
 ## ~/.rpi_vault_pass
+
 ```sh
 #!/bin/sh
 
 echo password
 ```
+
+`ansible-galaxy install jdauphant.nginx`
