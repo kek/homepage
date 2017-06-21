@@ -1,3 +1,4 @@
 [pi]
 harry.local ansible_python_interpreter=/usr/bin/python
 ingrid.local ansible_python_interpreter=/usr/bin/python
+pablo.local ansible_python_interpreter=/usr/bin/python
