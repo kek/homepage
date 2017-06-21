@@ -2,7 +2,7 @@ defmodule Hello.PageController do
   use Hello.Web, :controller
 
   def index(conn, _params) do
-    names = [:harry, :ingrid]
+    names = [:harry, :ingrid, :pablo]
 
     pings = names
     |> Enum.map(&(:"hello@#{&1}.local"))

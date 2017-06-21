@@ -6,7 +6,7 @@ BUILD_HOST="harry.local"
 BUILD_USER="pi"
 BUILD_AT="/tmp/edeliver/hello/builds"
 
-STAGING_HOSTS="harry.local ingrid.local"
+STAGING_HOSTS="harry.local ingrid.local pablo.local"
 STAGING_USER="pi"
 DELIVER_TO="/home/pi"
 

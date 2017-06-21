@@ -13,8 +13,6 @@
 - apt: name=libncurses5-dev state=latest
 - apt: name=gettext state=latest
 - apt: name=autoconf state=latest
-- name: Copy prod.secret.exs file
-  copy: src=config/prod.secret.exs dest=/home/pi/prod.secret.exs owner=pi group=pi mode=600
 # - name: Install hex
 #   command: mix local.hex
 # - name: Install Phoenix

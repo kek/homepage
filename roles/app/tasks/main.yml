@@ -1,0 +1,5 @@
+---
+- name: Copy prod.secret.exs
+  template: src=prod.secret.exs.j2 dest=/home/pi/prod.secret.exs owner=pi group=pi mode=600
+- name: Copy vm.args
+  template: src=vm.args.j2 dest=/home/pi/vm.args owner=pi group=pi mode=600
