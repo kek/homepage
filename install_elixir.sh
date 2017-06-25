@@ -5,7 +5,7 @@ cd elixir
 git fetch --all
 git checkout master
 git pull
-git checkout v1.4.4
+git checkout v1.4.5
 make clean test && sudo make install
 
 # mix local.hex
