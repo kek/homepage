@@ -22,3 +22,9 @@ echo password
 ```
 
 `ansible-galaxy install jdauphant.nginx`
+
+## Viktigt
+
+iw dev wlan0 set power_save off
+
+måste in i update_raspbian_image.sh
