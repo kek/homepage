@@ -13,6 +13,11 @@ network={
 }
 ```
 
+## secrets.yml
+
+Needs to contain the keys `erlang_cookie` and `secret_key_base`. The provided
+key contains the values for my particular project, encrypted with ansible-vault.
+
 ## ~/.rpi_vault_pass
 
 ```sh
