@@ -1,0 +1,5 @@
+---
+- apt: name=mosh state=latest
+- apt: name=fish state=latest
+- apt: name=tmux state=latest
+- service: name=avahi-daemon enabled=yes state=started

@@ -8,6 +8,7 @@
     - build
     - elixir
     - app
+    - tools
     - role: jdauphant.nginx
       nginx_sites:
         default:
@@ -19,7 +20,3 @@
       nginx_configs:
         upstream:
           - upstream web { server 127.0.0.1:5000; }
-  tasks:
-    - apt: name=mosh state=latest
-    - apt: name=fish state=latest
-    - apt: name=tmux state=latest
