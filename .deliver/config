@@ -2,7 +2,7 @@
 
 APP="hello"
 
-BUILD_HOST="harry.local"
+BUILD_HOST="pablo.local"
 BUILD_USER="pi"
 BUILD_AT="/tmp/edeliver/hello/builds"
 

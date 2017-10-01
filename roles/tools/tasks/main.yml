@@ -2,4 +2,11 @@
 - apt: name=mosh state=latest
 - apt: name=fish state=latest
 - apt: name=tmux state=latest
-- service: name=avahi-daemon enabled=yes state=started
+- name: start avahi-daemon
+  service: name=avahi-daemon enabled=yes state=started
+- name: fix nsswitch.conf
+  lineinfile:
+    path: /etc/nsswitch.conf
+    regexp: '^hosts: '
+    line: 'hosts:          files mdns4_minimal [NOTFOUND=return] dns'
+  notify: restart networking

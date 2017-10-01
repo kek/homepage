@@ -23,13 +23,26 @@ key contains the values for my particular project, encrypted with ansible-vault.
 ```sh
 #!/bin/sh
 
-echo password
+echo "the password that I use for storing secrets in secrets.yml (example)"
 ```
 
 `ansible-galaxy install jdauphant.nginx`
 
-## Viktigt
+## Make wifi not turn off on inactivity
 
-iw dev wlan0 set power_save off
+Turning off network connectivity every once in a while isn't proper behaviour
+for a server, so we need to disable that feature:
 
-måste in i update_raspbian_image.sh
+`iw dev wlan0 set power_save off`
+
+needs to go in /etc/rc.local.
+
+(To do: Update `update_raspbian_image.sh` for this)
+
+## Change keyboard layout
+
+To do: Configure /etc/defaults/keyboard via the Ansible scripts
+
+## X
+
+apt-get install --install-recommends lxde lightdm xinit

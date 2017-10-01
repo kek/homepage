@@ -1,0 +1,11 @@
+---
+- hosts: pi
+  remote_user: pi
+  become: yes
+  tasks:
+    - name: reboot
+      shell: reboot
+      async: 10
+      poll: 0
+    - local_action: wait_for_host={{ ansible_ssh_host }} state=started
+# https://www.linux.com/blog/ansible-reboot-server-play-book-and-wait-it-come-back
