@@ -1,0 +1,9 @@
+---
+- name: disable WLAN sleep
+  lineinfile:
+    path: /etc/rc.local
+    regexp: 'iw dev wlan0 set power_save off'
+    line: 'iw dev wlan0 set power_save off'
+  register: disable_wlan_sleep
+- command: 'iw dev wlan0 set power_save off'
+  when: disable_wlan_sleep.changed

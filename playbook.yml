@@ -4,6 +4,7 @@
   remote_user: pi
   become: yes
   roles:
+    - fix
     - apt
     - build
     - elixir

@@ -26,7 +26,9 @@ key contains the values for my particular project, encrypted with ansible-vault.
 echo "the password that I use for storing secrets in secrets.yml (example)"
 ```
 
-`ansible-galaxy install jdauphant.nginx`
+## You need to download the nginx role
+
+`ansible-galaxy install -r requirements.yml`
 
 ## Make wifi not turn off on inactivity
 
@@ -45,4 +47,10 @@ To do: Configure /etc/defaults/keyboard via the Ansible scripts
 
 ## X
 
-apt-get install --install-recommends lxde lightdm xinit
+apt-get install --install-recommends lxde lightdm xinit xorg
+
+## Bluetooth audio
+
+sudo apt-get install bluez pulseaudio-module-bluetooth python-gobject python-gobject-2 bluez-tools
+
+http://www.instructables.com/id/Turn-your-Raspberry-Pi-into-a-Portable-Bluetooth-A/
