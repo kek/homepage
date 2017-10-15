@@ -1,5 +1,5 @@
 ---
 - name: Copy Erlang install script
-  copy: src=install_erlang.sh dest=/home/pi/install_erlang.sh owner=pi group=pi mode=600
+  copy: src=install-erlang.sh dest=/home/pi/install-erlang.sh owner=pi group=pi mode=600
 - name: Copy Elixir install script
-  copy: src=install_elixir.sh dest=/home/pi/install_elixir.sh owner=pi group=pi mode=600
+  copy: src=install-elixir.sh dest=/home/pi/install-elixir.sh owner=pi group=pi mode=600

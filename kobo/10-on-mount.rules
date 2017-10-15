@@ -1,0 +1,1 @@
+ACTION=="add", KERNEL=="sd*", ATTRS{vendor}=="Kobo    ", ATTRS{model}=="eReader-4.5.9587", RUN+="/kobo-sync.sh"

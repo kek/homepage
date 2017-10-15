@@ -54,3 +54,8 @@ apt-get install --install-recommends lxde lightdm xinit xorg
 sudo apt-get install bluez pulseaudio-module-bluetooth python-gobject python-gobject-2 bluez-tools
 
 http://www.instructables.com/id/Turn-your-Raspberry-Pi-into-a-Portable-Bluetooth-A/
+
+bt-speaker
+https://github.com/lukasjapan/bt-speaker
+
+install_netatalk.sh
