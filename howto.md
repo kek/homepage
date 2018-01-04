@@ -30,20 +30,13 @@ echo "the password that I use for storing secrets in secrets.yml (example)"
 
 `ansible-galaxy install -r requirements.yml`
 
-## Make wifi not turn off on inactivity
-
-Turning off network connectivity every once in a while isn't proper behaviour
-for a server, so we need to disable that feature:
-
-`iw dev wlan0 set power_save off`
-
-needs to go in /etc/rc.local.
-
-(To do: Update `update_raspbian_image.sh` for this)
-
 ## Change keyboard layout
 
 To do: Configure /etc/defaults/keyboard via the Ansible scripts
+
+## Configure locales
+
+To do: Do the equivalent of `dpkg-reconfigure locales` via the Ansible scripts
 
 ## X
 
