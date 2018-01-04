@@ -51,4 +51,8 @@ http://www.instructables.com/id/Turn-your-Raspberry-Pi-into-a-Portable-Bluetooth
 bt-speaker
 https://github.com/lukasjapan/bt-speaker
 
-install_netatalk.sh
+install-netatalk.sh
+
+## Todo
+
+- Add a status page with system metrics

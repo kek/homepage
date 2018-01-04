@@ -12,6 +12,8 @@ DELIVER_TO="/home/pi"
 
 LINK_VM_ARGS="/home/pi/vm.args"
 
+AUTO_VERSION=revision
+
 # For *Phoenix* projects, symlink prod.secret.exs to our tmp source
 pre_erlang_get_and_update_deps() {
   local _prod_secret_path="/home/pi/prod.secret.exs"
