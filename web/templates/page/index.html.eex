@@ -9,3 +9,7 @@ Välkommen på söndagsmys.
     <% end %>
   <% end %>
 </ol>
+
+<pre>
+  <%= :os.cmd('cat /proc/cpuinfo') |> List.to_string %>
+</pre>
