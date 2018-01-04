@@ -48,7 +48,7 @@ defmodule Hello.Mixfile do
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
       {:edeliver, "~> 1.4"},
-      {:distillery, ">= 0.8.0", warn_missing: false}
+      {:distillery, "~> 1.5", warn_missing: false}
     ]
   end
 end
