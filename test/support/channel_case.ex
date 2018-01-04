@@ -20,14 +20,12 @@ defmodule Hello.ChannelCase do
       # Import conveniences for testing with channels
       use Phoenix.ChannelTest
 
-
       # The default endpoint for testing
       @endpoint Hello.Endpoint
     end
   end
 
   setup tags do
-
     :ok
   end
 end
