@@ -13,3 +13,8 @@ Välkommen på söndagsmys.
 <pre>
   <%= :os.cmd('cat /proc/cpuinfo') |> List.to_string %>
 </pre>
+
+<h2>Todo</h2>
+<ul>
+  <li>wobserver!</li>
+</ul>
