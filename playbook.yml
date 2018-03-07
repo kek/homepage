@@ -4,9 +4,9 @@
   remote_user: pi
   become: yes
   roles:
-    - fix
+    - fix-wlan
     - apt
-    - build
+    - build-deps
     - elixir-install-scripts
     - app
     - tools
