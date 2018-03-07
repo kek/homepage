@@ -11,3 +11,5 @@ Välkommen på söndagsmys.
 </ol>
 
 <h2><%= Application.get_env(:hello, :gurka) %></h2>
+
+<p><%= System.get_env("GURKA") %>
