@@ -1,0 +1,8 @@
+---
+- include_vars: secrets.yml
+- name: Write hello.service
+  template: src=hello.service.j2 dest=/etc/systemd/system/hello.service owner=root group=root mode=644
+- name: Write hello.env
+  template: src=hello.env.j2 dest=/etc/default/hello.env owner=root group=root mode=644
+- name: Enable the service
+  systemd: name=hello enabled=yes

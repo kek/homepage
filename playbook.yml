@@ -10,6 +10,7 @@
     - elixir-install-scripts
     - app
     - tools
+    - service-files
     - role: jdauphant.nginx
       nginx_sites:
         default:

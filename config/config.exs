@@ -7,6 +7,7 @@ use Mix.Config
 
 # General application configuration
 config :hello, namespace: Hello
+config :hello, gurka: "${GURKA}"
 
 # Configures the endpoint
 config :hello, Hello.Endpoint,

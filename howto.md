@@ -56,3 +56,5 @@ install-netatalk.sh
 ## Todo
 
 - Add a status page with system metrics
+- Extract app name to variable
+- Move all ansible stuff into a directory
