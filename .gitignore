@@ -2,6 +2,7 @@
 /wpa_supplicant.conf
 /.vagrant
 /playbook.retry
+/reboot.retry
 /tmp
 
 # App artifacts

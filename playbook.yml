@@ -7,7 +7,7 @@
     - fix
     - apt
     - build
-    - elixir
+    - elixir-install-scripts
     - app
     - tools
     - role: jdauphant.nginx
