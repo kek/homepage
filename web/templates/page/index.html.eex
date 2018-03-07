@@ -10,9 +10,5 @@ Välkommen på söndagsmys.
   <% end %>
 </ol>
 
-<pre>
-  <%= :os.cmd('cat /proc/cpuinfo') |> List.to_string %>
-</pre>
-
 <h2>Gurka</h2>
 <p><%= Application.get_env(:hello, :gurka) %>
