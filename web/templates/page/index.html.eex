@@ -13,3 +13,7 @@ Välkommen på söndagsmys.
 <h2><%= Application.get_env(:hello, :gurka) %></h2>
 
 <p><%= System.get_env("GURKA") %>
+
+<h2>Version</h2>
+
+<p><%= Hello.version() %></p>
