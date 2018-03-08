@@ -9,6 +9,11 @@ use Mix.Config
 config :hello, namespace: Hello
 config :hello, gurka: "${GURKA}"
 
+config :wobserver,
+  mode: :plug,
+  discovery: :dns,
+  discovery_search: fn -> [:"hello@pablo.local", :"hello@ingrid.local", :"hello@harry.local"] end
+
 # Configures the endpoint
 config :hello, Hello.Endpoint,
   url: [host: "localhost"],
@@ -20,8 +25,6 @@ config :hello, Hello.Endpoint,
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
-
-config :wobserver, mode: :plug
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
