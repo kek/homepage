@@ -9,8 +9,6 @@ use Mix.Config
 config :hello, namespace: Hello
 config :hello, gurka: "${GURKA}"
 
-config :wobserver, mode: :plug
-
 # Configures the endpoint
 config :hello, Hello.Endpoint,
   url: [host: "localhost"],

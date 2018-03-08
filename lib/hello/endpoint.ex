@@ -23,8 +23,6 @@ defmodule Hello.Endpoint do
     plug(Phoenix.CodeReloader)
   end
 
-  socket("/wobserver", Wobserver.Web.PhoenixSocket)
-
   plug(Plug.RequestId)
   plug(Plug.Logger)
 

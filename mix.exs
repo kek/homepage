@@ -27,8 +27,7 @@ defmodule Hello.Mixfile do
         :cowboy,
         :logger,
         :gettext,
-        :edeliver,
-        :wobserver
+        :edeliver
       ]
     ]
   end
@@ -49,8 +48,7 @@ defmodule Hello.Mixfile do
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
       {:edeliver, "~> 1.4"},
-      {:distillery, "~> 1.5", warn_missing: false},
-      {:wobserver, "~> 0.1"}
+      {:distillery, "~> 1.5", warn_missing: false}
     ]
   end
 end
