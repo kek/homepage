@@ -4,7 +4,7 @@ defmodule Hello.Mixfile do
   def project do
     [
       app: :hello,
-      version: "0.0.3",
+      version: "0.0.4",
       elixir: "~> 1.2",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
@@ -19,7 +19,7 @@ defmodule Hello.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {Hello, []},
+      mod: {Hello.Supervisor, []},
       applications: [
         :phoenix,
         :phoenix_pubsub,

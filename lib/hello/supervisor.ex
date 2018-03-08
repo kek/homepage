@@ -1,4 +1,4 @@
-defmodule Hello do
+defmodule Hello.Supervisor do
   use Application
 
   # See http://elixir-lang.org/docs/stable/elixir/Application.html
