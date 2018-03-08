@@ -5,8 +5,4 @@ defmodule Hello do
   def version do
     "#{@version} #{@git_commit}"
   end
-
-  def nodes do
-    [:"hello@pablo.local", :"hello@ingrid.local", :"hello@harry.local"]
-  end
 end
