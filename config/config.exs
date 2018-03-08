@@ -12,7 +12,7 @@ config :hello, gurka: "${GURKA}"
 config :wobserver,
   mode: :plug,
   discovery: :dns,
-  discovery_search: fn -> [:"hello@pablo.local", :"hello@ingrid.local", :"hello@harry.local"] end
+  discovery_search: &Hello.nodes/0
 
 # Configures the endpoint
 config :hello, Hello.Endpoint,
