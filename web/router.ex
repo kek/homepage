@@ -20,6 +20,10 @@ defmodule Hello.Router do
     get("/", PageController, :index)
   end
 
+  scope "/wobserver" do
+    forward("/", Wobserver.Web.Router)
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", Hello do
   #   pipe_through :api
