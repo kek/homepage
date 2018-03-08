@@ -27,7 +27,8 @@ defmodule Hello.Mixfile do
         :cowboy,
         :logger,
         :gettext,
-        :edeliver
+        :edeliver,
+        :wobserver
       ]
     ]
   end
