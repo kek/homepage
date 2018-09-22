@@ -1,0 +1,19 @@
+---
+- name: Copy Erlang install script
+  copy: src=install-erlang.sh dest=/home/pi/install-erlang.sh owner=pi group=pi mode=600
+- name: Copy Elixir install script
+  copy: src=install-elixir.sh dest=/home/pi/install-elixir.sh owner=pi group=pi mode=600
+- name: Check if Erlang is installed
+  stat:
+    path: /usr/local/bin/erl
+  register: erlang
+- name: Install Erlang
+  command: sh install-erlang.sh
+  when: erlang.stat.exists == False
+- name: Check if Elixir is installed
+  stat:
+    path: /usr/local/bin/elixir
+  register: elixir
+- name: Install Elixir
+  command: sh install-elixir.sh
+  when: elixir.stat.exists == False

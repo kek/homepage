@@ -46,7 +46,7 @@ ansible-galaxy install -r requirements.yml
 Then, for each host, do `ssh-copy-id pi@<hostname>` and input the password for
 the `pi` user.
 
-## Provisioning and updating
+## Updating configuration and application
 
 Last step. This is the only thing that needs to be done regularly after the
 above is set up.

@@ -7,7 +7,7 @@
     - fix-wlan
     - apt
     - build-deps
-    - elixir-install-scripts
+    - elixir-and-erlang
     - app
     - tools
     - service-files
