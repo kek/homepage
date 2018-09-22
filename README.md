@@ -1,19 +1,58 @@
-# Hello
+# Elixir + Ansible + Raspberry Pi setup
 
-To start your Phoenix app:
+## Initial manual provisioning the Raspberry hosts
 
-  * Install dependencies with `mix deps.get`
-  * Install Node.js dependencies with `npm install`
-  * Start Phoenix endpoint with `mix phoenix.server`
+This is the part that I wasn't able to completely automate.
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+Requirement:
 
-Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
+* Vagrant
 
-## Learn more
+How to:
 
-  * Official website: http://www.phoenixframework.org/
-  * Guides: http://phoenixframework.org/docs/overview
-  * Docs: https://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix
+* Download a raspbian image and store it as `raspbian.img` here.
+* Write a `wpa_supplicant.conf` file if you need a wifi connection.
+* Run `vagrant up`.
+* Run the `update-raspbian-image.sh` script from inside the Vagrant machine to
+  update the image with the wifi configuration and to enable SSH.
+* The SD card image is now unmounted. If additional adjustments are needed, the
+  process of mounting the SD card again is described in
+  `update-raspbian-image.sh`.
+* Write the updated image to the Raspberry's SD card. 
+* Boot the Raspberry and log in to set the hostname. It should now be able to
+  be autodiscovered, but the Avahi configuration might need to be adjusted.
+  Alternatively, update `hosts` in the project to use literal IP addresses. Also
+  set a new password for the user `pi`.
+
+## Preparing for running Ansible
+
+This installs the requirements on the local machine (Ansible control host) and
+authorizes it to manage the Raspberries.
+
+Requirements:
+
+* pip (Debian package: `python-pip`)
+* The password that encodes `secrets.yml` with `ansible-vault`
+* The password for the user `pi` set above.
+
+How to:
+
+```
+pip install ansible
+echo <password> > ~/.rpi_vault_pass
+ansible-galaxy install -r requirements.yml
+```
+
+Then, for each host, do `ssh-copy-id pi@<hostname>` and input the password for
+the `pi` user.
+
+## Provisioning and updating
+
+Last step. This is the only thing that needs to be done regularly after the
+above is set up.
+
+To update the configuration and/or deploy a new app version, run
+
+```
+ansible-playbook playbook.yml
+```
