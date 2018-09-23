@@ -9,9 +9,10 @@ defmodule Hello.Supervisor do
     # Define workers and child supervisors to be supervised
     children = [
       # Start the endpoint when the application starts
-      supervisor(Hello.Endpoint, [])
+      supervisor(Hello.Endpoint, []),
       # Start your own worker by calling: Hello.Worker.start_link(arg1, arg2, arg3)
       # worker(Hello.Worker, [arg1, arg2, arg3]),
+      worker(Hello.NodeInfo, [])
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html

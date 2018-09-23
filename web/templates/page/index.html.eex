@@ -17,3 +17,7 @@ Välkommen på söndagsmys.
 <p>App version: <%= Hello.version() %></p>
 <p>Elixir version: <%= System.version() %></p>
 <p>Erlang version: <%= :erlang.system_info(:otp_release) %></p>
+
+<h2>Node infos</h2>
+
+<%= inspect @node_infos %>
