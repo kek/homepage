@@ -48,8 +48,12 @@ the `pi` user.
 
 ## Configuring nodes
 
-Last step. To update the configuration, run
+To update the configuration, run
 
 ```
 ansible-playbook playbook.yml
 ```
+
+## Installing the app
+
+to do
