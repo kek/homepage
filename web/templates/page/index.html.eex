@@ -12,8 +12,8 @@ Välkommen på söndagsmys.
 
 <h2><%= Application.get_env(:hello, :gurka) %></h2>
 
-<p><%= System.get_env("GURKA") %>
-
 <h2>Version</h2>
 
-<p><%= Hello.version() %></p>
+<p>App version: <%= Hello.version() %></p>
+<p>Elixir version: <%= System.version() %></p>
+<p>Erlang version: <%= :erlang.system_info(:otp_release) %></p>
