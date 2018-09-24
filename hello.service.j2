@@ -5,6 +5,7 @@ After=network.target
 [Service]
 WorkingDirectory=/home/pi/hello
 EnvironmentFile=/etc/default/hello.env
+PassEnvironment=GURKA
 ExecStart=/home/pi/hello/bin/hello start
 ExecStop=/home/pi/hello/bin/hello stop
 User=pi
