@@ -1,13 +1,14 @@
 #!/bin/sh
+version=22.0.7
 sudo apt-get update
 sudo apt-get install wget
 sudo apt-get install libssl-dev
 sudo apt-get install ncurses-dev
-wget http://www.erlang.org/download/otp_src_21.0.tar.gz
-tar -xzvf otp_src_21.0.tar.gz
-cd otp_src_21.0/
+wget http://www.erlang.org/download/otp_src_${version}.tar.gz
+tar -xzvf otp_src_${version}.tar.gz
+cd otp_src_${version}/
 ./configure
 make
 sudo make install
 cd ..
-rm otp_src_21.0.tar.gz
+rm otp_src_${version}.tar.gz

@@ -5,7 +5,7 @@ cd elixir
 git fetch --all
 git checkout master
 git pull
-git checkout v1.7.3
+git checkout v1.9.1
 make clean test
 sudo make install
 
