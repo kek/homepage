@@ -48,7 +48,6 @@ defmodule Hello.Mixfile do
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
-      {:edeliver, "~> 1.6"},
       {:wobserver, "~> 0.1"}
     ]
   end
