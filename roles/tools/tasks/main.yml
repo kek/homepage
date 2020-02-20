@@ -2,6 +2,7 @@
 - apt: name=mosh state=latest
 - apt: name=fish state=latest
 - apt: name=tmux state=latest
+- apt: name=rsync state=latest
 - name: start avahi-daemon
   service: name=avahi-daemon enabled=yes state=started
 - name: fix nsswitch.conf
