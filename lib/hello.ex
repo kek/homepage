@@ -7,6 +7,7 @@ defmodule Hello do
   end
 
   def nodes do
-    [:"hello@pablo.local", :"hello@ingrid.local", :"hello@harry.local"]
+    # [:"hello@pablo.local", :"hello@ingrid.local", :"hello@harry.local"]
+    [:"hello@pablo.local"]
   end
 end
