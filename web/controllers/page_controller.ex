@@ -5,7 +5,8 @@ defmodule Hello.PageController do
     render(conn, "index.html", present: present(), node_infos: node_infos())
   end
 
-  defp names, do: [:harry, :ingrid, :pablo]
+  # defp names, do: [:harry, :ingrid, :pablo]
+  defp names, do: [:pablo]
 
   defp nodes, do: Enum.map(names(), &:"hello@#{&1}.local")
 
