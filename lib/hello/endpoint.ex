@@ -23,7 +23,7 @@ defmodule Hello.Endpoint do
     plug(Phoenix.CodeReloader)
   end
 
-  socket("/wobserver", Wobserver.Web.PhoenixSocket)
+  # socket("/wobserver", Wobserver.Web.PhoenixSocket)
 
   plug(Plug.RequestId)
   plug(Plug.Logger)
@@ -32,7 +32,7 @@ defmodule Hello.Endpoint do
     Plug.Parsers,
     parsers: [:urlencoded, :multipart, :json],
     pass: ["*/*"],
-    json_decoder: Poison
+    json_decoder: Jason
   )
 
   plug(Plug.MethodOverride)
