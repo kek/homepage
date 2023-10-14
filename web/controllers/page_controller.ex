@@ -18,9 +18,6 @@ defmodule Hello.PageController do
   end
 
   defp node_infos do
-    nodes()
-    |> Enum.map(fn node ->
-      {node, Hello.NodeInfo.info(node)}
-    end)
+    []
   end
 end
