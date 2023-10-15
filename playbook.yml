@@ -2,7 +2,7 @@
 - hosts: pi
   # strategy: debug
   remote_user: pi
-  become: yes
+  become: true
   roles:
     - fix-wlan
     - apt
