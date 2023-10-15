@@ -1,0 +1,3 @@
+#!/bin/bash
+
+iex --name hello@dev --cookie "$(ansible-vault view ansible/cookie.txt)" -S mix phx.server
