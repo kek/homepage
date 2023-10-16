@@ -1,7 +1,7 @@
 #!/bin/sh
 
 git clone https://github.com/elixir-lang/elixir
-cd elixir
+cd elixir || exit
 git fetch --all
 git checkout master
 git pull

@@ -1,9 +1,9 @@
 ---
 - hosts: pi
   remote_user: pi
-  become: yes
+  become: true
   tasks:
   - name: Copy Elixir install script
     copy: src=install-elixir.sh dest=/home/pi/install-elixir.sh owner=pi group=pi mode=600
-  - name: Install Elixir
-    command: sh install-elixir.sh
+  # - name: Install Elixir
+  #   command: sh install-elixir.sh
