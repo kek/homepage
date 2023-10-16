@@ -25,6 +25,7 @@ defmodule Hello.Mixfile do
         :phoenix_pubsub,
         :phoenix_html,
         :logger,
+        :cowboy,
         :gettext
       ]
     ]
@@ -45,6 +46,7 @@ defmodule Hello.Mixfile do
       {:phoenix_html, "~> 3.3"},
       {:phoenix_live_reload, "~> 1.4", only: :dev},
       {:gettext, "~> 0.23.1"},
+      {:cowboy, "~> 2.10"},
       {:jason, "~> 1.4"}
     ]
   end
