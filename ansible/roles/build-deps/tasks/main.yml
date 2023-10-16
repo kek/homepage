@@ -1,19 +1,12 @@
 ---
-- name: Install git
-  apt: name=git state=latest
-# - name: add apt key for nodesource
-#   apt_key: url=https://deb.nodesource.com/gpgkey/nodesource.gpg.key
-# - name: add repo for nodesource
-#   apt_repository:
-#     repo: 'deb https://deb.nodesource.com/node_7.x {{ ansible_distribution_release }} main'
-#     update_cache: yes
-# - apt: name=nodejs state=latest
-- apt: name=build-essential state=latest
-- apt: name=ncurses-dev state=latest
-- apt: name=libncurses5-dev state=latest
-- apt: name=gettext state=latest
-- apt: name=autoconf state=latest
-# - name: Install hex
-#   command: mix local.hex
-# - name: Install Phoenix
-#   command: mix archive.install https://github.com/phoenixframework/archives/raw/master/phoenix_new.ez
+- name: Install a lot of packages
+  apt:
+    name:
+      - git
+      - build-essential
+      - ncurses-dev
+      - libncurses5-dev
+      - gettext
+      - autoconf
+    state: latest
+    update_cache: true

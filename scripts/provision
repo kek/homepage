@@ -1,0 +1,4 @@
+#!/bin/sh
+
+cd ansible || exit
+ansible-playbook playbook.yml
