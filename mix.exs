@@ -44,7 +44,7 @@ defmodule Hello.Mixfile do
       {:phoenix_view, "~> 2.0"},
       {:phoenix_pubsub, "~> 2.1"},
       {:phoenix_html, "~> 3.3"},
-      {:phoenix_live_reload, "~> 1.4", only: :dev},
+      {:phoenix_live_reload, "~> 1.4"},
       {:gettext, "~> 0.23.1"},
       {:cowboy, "~> 2.10"},
       {:plug_cowboy, "~> 2.6"},

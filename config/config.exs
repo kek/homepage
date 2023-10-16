@@ -9,17 +9,17 @@ use Mix.Config
 config :hello, namespace: Hello
 config :hello, gurka: "${GURKA}"
 
-config :wobserver,
-  mode: :plug,
-  discovery: :dns,
-  discovery_search: "&Hello.nodes/0"
+# config :wobserver,
+#   mode: :plug,
+#   discovery: :dns,
+#   discovery_search: "&Hello.nodes/0"
 
 # Configures the endpoint
 config :hello, Hello.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "gJATC1LVk4KuW6zj2CfhBdkWei5/p/JYMilDOqYQMwrMZxQr4/Lgf8gLMHXZcgNp",
   render_errors: [view: Hello.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: Hello.PubSub, adapter: Phoenix.PubSub.PG2]
+  pubsub_server: Hello.PubSub
 
 # Configures Elixir's Logger
 config :logger, :console,

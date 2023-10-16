@@ -3,5 +3,6 @@
 cp ~/prod.secret.exs config
 mix deps.get
 mix clean
+npm install
 MIX_ENV=prod mix release
 
