@@ -1,5 +1,5 @@
 ---
-- include_vars: secrets.yml
+- include_vars: secrets.txt
 - name: Write hello.service
   template: src=hello.service.j2 dest=/etc/systemd/system/hello.service owner=root group=root mode=644
 - name: Write hello.env
