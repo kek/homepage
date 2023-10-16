@@ -13,7 +13,7 @@ defmodule Hello.PageController do
   defp pings, do: Enum.map(nodes(), &Node.ping/1)
 
   defp present do
-    []
+    %{}
   end
 
   defp node_infos do
