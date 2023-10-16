@@ -24,10 +24,8 @@ defmodule Hello.Mixfile do
         :phoenix,
         :phoenix_pubsub,
         :phoenix_html,
-        :cowboy,
         :logger,
-        :gettext,
-        :wobserver
+        :gettext
       ]
     ]
   end
