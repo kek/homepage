@@ -1,5 +1,5 @@
 [pi]
-pablo.local ansible_python_interpreter=/usr/bin/python
+hem.karleklund.se ansible_python_interpreter=/usr/bin/python
 # ingrid.local ansible_python_interpreter=/usr/bin/python
 # harry.local ansible_python_interpreter=/usr/bin/python
 
