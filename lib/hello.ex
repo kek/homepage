@@ -1,9 +1,8 @@
 defmodule Hello do
-  @version Hello.Mixfile.project()[:version]
-  @git_commit :os.cmd('git rev-parse HEAD') |> List.to_string() |> String.trim()
+  @git_commit :os.cmd(~c"git rev-parse HEAD") |> List.to_string() |> String.trim()
 
   def version do
-    "#{@version} #{@git_commit}"
+    "#{@git_commit}" |> String.slice(0..5)
   end
 
   def nodes do
