@@ -48,7 +48,8 @@ defmodule Hello.Mixfile do
       {:gettext, "~> 0.23.1"},
       {:cowboy, "~> 2.10"},
       {:plug_cowboy, "~> 2.6"},
-      {:jason, "~> 1.4"}
+      {:jason, "~> 1.4"},
+      {:mix_test_watch, "~> 1.1", only: :dev, runtime: false}
     ]
   end
 end

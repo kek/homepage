@@ -5,6 +5,10 @@ defmodule Hello.NodeInfo do
     GenServer.call({__MODULE__, name}, {:info})
   end
 
+  def init(init_arg) do
+    {:ok, init_arg}
+  end
+
   def start_link do
     GenServer.start_link(__MODULE__, [], name: __MODULE__)
   end

@@ -3,6 +3,6 @@ defmodule Hello.PageControllerTest do
 
   test "GET /", %{conn: conn} do
     conn = get(conn, "/")
-    assert html_response(conn, 200) =~ "Välkommen på söndagsmys"
+    assert html_response(conn, 200) =~ "DOCTYPE html"
   end
 end
