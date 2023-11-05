@@ -1,9 +1,3 @@
-<h1>Hello</h1>
-
-<h2><%= Application.get_env(:hello, :gurka) %></h2>
-
-<p> My Elm component:</p>
-
 <pre id="elm"></pre>
 <script src="/js/elm.js"></script>
 <script>

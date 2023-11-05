@@ -1,8 +1,5 @@
 #!/bin/sh
 
-cp ~/prod.secret.exs config
-mix deps.get
-mix clean
-npm install
-MIX_ENV=prod mix release
-
+mix compile.elm
+docker build -t sofa-builder .
+docker run -v "$PWD/_build/armv7:/src/_build" sofa-builder

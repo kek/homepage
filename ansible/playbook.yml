@@ -7,7 +7,6 @@
     - fix-wlan
     - apt
     - build-deps
-    - app
     - tools
     - service-files
     - role: jdauphant.nginx

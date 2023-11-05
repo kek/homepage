@@ -1,6 +1,0 @@
----
-- include_vars: secrets.txt
-- name: Copy prod.secret.exs
-  template: src=prod.secret.exs.j2 dest=/home/ke/prod.secret.exs owner=ke group=ke mode=600
-- name: Copy vm.args
-  template: src=vm.args.j2 dest=/home/ke/vm.args owner=ke group=ke mode=600

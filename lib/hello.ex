@@ -1,8 +1,9 @@
 defmodule Hello do
   @git_commit :os.cmd(~c"git rev-parse HEAD") |> List.to_string() |> String.trim()
+  @mix_app_version Mix.Project.config()[:version]
 
   def version do
-    "#{@git_commit}" |> String.slice(0..5)
+    @mix_app_version <> "-" <> ("#{@git_commit}" |> String.slice(0..5))
   end
 
   def nodes do

@@ -1,3 +1,9 @@
 #!/bin/sh
 
-ssh hem.karleklund.se "git clone https://github.com/kek/sofa; cd sofa; git status; git checkout -- .; git pull; ./scripts/build; sudo rsync -r _build/prod/rel/hello/* ~pi/hello; sudo chown -R pi:pi ~pi/hello; sudo systemctl restart hello"
+echo BUILDING
+./scripts/build
+# (cd _build/armv7/prod/rel || exit; tar tvzf - hello) | ssh pi@hem.karleklund.se tar xvzf -
+echo COPYING
+rsync -r _build/armv7/prod/rel/hello/* pi@hem.karleklund.se:hello
+echo RESTARTING
+ssh hem.karleklund.se "sudo systemctl restart hello"

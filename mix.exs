@@ -4,7 +4,7 @@ defmodule Hello.Mixfile do
   def project do
     [
       app: :hello,
-      version: "0.0.7",
+      version: "0.0.8",
       elixir: "~> 1.15",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [] ++ Mix.compilers() ++ [],
