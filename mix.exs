@@ -7,7 +7,7 @@ defmodule Hello.Mixfile do
       version: "0.0.7",
       elixir: "~> 1.15",
       elixirc_paths: elixirc_paths(Mix.env()),
-      compilers: Mix.compilers() ++ [:elm],
+      compilers: [] ++ Mix.compilers() ++ [],
       build_embedded: Mix.env() == :prod,
       start_permanent: Mix.env() == :prod,
       deps: deps()
