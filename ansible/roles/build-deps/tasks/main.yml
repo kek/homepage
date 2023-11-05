@@ -8,5 +8,6 @@
       - libncurses5-dev
       - gettext
       - autoconf
+      - elm-compiler
     state: latest
     update_cache: true

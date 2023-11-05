@@ -2,5 +2,15 @@
 
 <h2><%= Application.get_env(:hello, :gurka) %></h2>
 
+<p> My Elm component:</p>
+
+<pre id="elm"></pre>
+<script src="/js/elm.js"></script>
+<script>
+      var app = Elm.Main.init({
+        node: document.getElementById("elm")
+      });
+</script>
+
 <hr/>
 <p><%= Hello.version() %>/<%= System.version() %>/<%= :erlang.system_info(:otp_release) %></p>
