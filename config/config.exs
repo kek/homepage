@@ -7,10 +7,6 @@
 # General application configuration
 import Config
 
-config :hello,
-  ecto_repos: [Hello.Repo],
-  generators: [timestamp_type: :utc_datetime]
-
 # Configures the endpoint
 config :hello, HelloWeb.Endpoint,
   url: [host: "localhost"],
