@@ -8,3 +8,4 @@
 
 <hr/>
 <p><%= Hello.version() %>/<%= System.version() %>/<%= :erlang.system_info(:otp_release) %></p>
+<p>byz</p>

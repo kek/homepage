@@ -32,3 +32,9 @@ erl_crash.dump
 
 /elm-stuff
 /priv/static/js/elm.js
+npm-debug.log
+/assets/node_modules/
+
+# Database files
+*.db
+*.db-*
