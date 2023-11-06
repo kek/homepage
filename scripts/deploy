@@ -1,9 +1,10 @@
 #!/bin/sh
 
 echo BUILDING
-./scripts/build
+./scripts/build || exit 1
 # (cd _build/armv7/prod/rel || exit; tar tvzf - hello) | ssh pi@hem.karleklund.se tar xvzf -
 echo COPYING
-rsync -r _build/armv7/prod/rel/hello/* pi@hem.karleklund.se:hello
+rsync -r _build/armv7/prod/rel/hello/* pi@hem.karleklund.se:hello || exit 1
 echo RESTARTING
-ssh hem.karleklund.se "sudo systemctl restart hello"
+ssh hem.karleklund.se "sudo systemctl restart hello" || exit 1
+echo DONE

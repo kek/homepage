@@ -1,6 +1,6 @@
 #!/bin/sh
 
-mix compile.elm
-mix phx.digest
-docker build -t sofa-builder .
-docker run -v "$PWD/_build/armv7:/src/_build" sofa-builder
+mix compile.elm || exit 1
+mix phx.digest || exit 1
+docker build -t sofa-builder . || exit 1
+docker run -v "$PWD/_build/armv7:/src/_build" sofa-builder || exit 1
