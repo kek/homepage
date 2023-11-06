@@ -6,5 +6,6 @@ echo BUILDING
 echo COPYING
 rsync -r _build/armv7/prod/rel/hello/* pi@hem.karleklund.se:hello || exit 1
 echo RESTARTING
+ssh hem.karleklund.se "sudo systemctl daemon-reload" || exit 1
 ssh hem.karleklund.se "sudo systemctl restart hello" || exit 1
 echo DONE
