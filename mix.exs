@@ -61,9 +61,15 @@ defmodule Hello.MixProject do
     [
       setup: ["deps.get", "assets.setup", "assets.build"],
       test: ["test"],
+      "phx.server": ["compile.elm", "phx.server"],
       "assets.setup": ["tailwind.install --if-missing", "esbuild.install --if-missing"],
       "assets.build": ["tailwind default", "esbuild default"],
-      "assets.deploy": ["tailwind default --minify", "esbuild default --minify", "phx.digest"]
+      "assets.deploy": [
+        "compile.elm",
+        "tailwind default --minify",
+        "esbuild default --minify",
+        "phx.digest"
+      ]
     ]
   end
 end

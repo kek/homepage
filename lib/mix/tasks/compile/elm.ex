@@ -3,7 +3,7 @@ defmodule Mix.Tasks.Compile.Elm do
 
   def run(_) do
     with {_output, 0} <-
-           System.cmd("elm", ["make", "src/Main.elm", "--output=priv/static/js/elm.js"]) do
+           System.cmd("elm", ["make", "src/Main.elm", "--optimize", "--output=assets/elm/main.js"]) do
       :ok
     else
       {output, status} ->

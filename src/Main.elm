@@ -59,8 +59,7 @@ update msg model =
 view : Model -> Html Msg
 view model =
     div []
-        [ h1 [] [ text "counter:" ]
-        , button [ onClick Increment ] [ text "not enough" ]
+        [ button [ onClick Increment ] [ text "not enough" ]
         , div [] [ text (String.fromInt model) ]
         , button [ onClick Decrement ] [ text "too much" ]
         ]
