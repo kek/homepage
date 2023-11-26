@@ -7,8 +7,8 @@ module Main exposing (..)
 --
 
 import Browser
-import Html exposing (Html, button, div, h1, text)
-import Html.Events exposing (onClick)
+import Html exposing (Html, div, p, text)
+import Http
 
 
 
@@ -17,20 +17,26 @@ import Html.Events exposing (onClick)
 
 main : Program () Model Msg
 main =
-    Browser.sandbox { init = init, update = update, view = view }
+    Browser.element
+        { init = \flags -> ( [], Cmd.none )
+        , view = view
+        , update = update
+        , subscriptions = \_ -> Sub.none
+        }
 
 
 
 -- MODEL
 
 
+type alias Item =
+    { name : String
+    , description : String
+    }
+
+
 type alias Model =
-    Int
-
-
-init : Model
-init =
-    0
+    List Item
 
 
 
@@ -38,18 +44,15 @@ init =
 
 
 type Msg
-    = Increment
-    | Decrement
+    = SendHttpRequest
+    | DataReceived (Result Http.Error String)
 
 
-update : Msg -> Model -> Model
-update msg model =
+update : Msg -> Model -> ( Model, Cmd Msg )
+update msg _ =
     case msg of
-        Increment ->
-            model + 12
-
-        Decrement ->
-            model - 13
+        _ ->
+            ( [], Cmd.none )
 
 
 
@@ -57,9 +60,6 @@ update msg model =
 
 
 view : Model -> Html Msg
-view model =
+view _ =
     div []
-        [ button [ onClick Increment ] [ text "not enough" ]
-        , div [] [ text (String.fromInt model) ]
-        , button [ onClick Decrement ] [ text "too much" ]
-        ]
+        [ p [] [ text "Hello, World!" ] ]
