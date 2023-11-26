@@ -1,11 +1,5 @@
 module Main exposing (..)
 
--- Press buttons to increment and decrement a counter.
---
--- Read how it works:
---   https://guide.elm-lang.org/architecture/buttons.html
---
-
 import Browser
 import Html exposing (Html, div, p, text)
 import Http
@@ -18,7 +12,7 @@ import Http
 main : Program () Model Msg
 main =
     Browser.element
-        { init = \flags -> ( [], Cmd.none )
+        { init = \_ -> ( [], Cmd.none )
         , view = view
         , update = update
         , subscriptions = \_ -> Sub.none
