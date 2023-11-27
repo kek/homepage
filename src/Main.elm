@@ -11,7 +11,7 @@ import List exposing (map)
 -- MAIN
 
 
-main : Program () Model Msg
+main : Program PerhapsFlags Model Msg
 main =
     Browser.element
         { init = init
@@ -21,9 +21,32 @@ main =
         }
 
 
-init : () -> ( Model, Cmd Msg )
-init _ =
-    ( noContent, getData )
+
+-- Elm code
+
+
+type alias Flags =
+    { apiUrl : String
+    }
+
+
+type alias PerhapsFlags =
+    Json.Decode.Value
+
+
+init : PerhapsFlags -> ( Model, Cmd Msg )
+init flags =
+    ( noContent, getDataFrom (getApiUrlFromFlags flags) )
+
+
+getApiUrlFromFlags : PerhapsFlags -> String
+getApiUrlFromFlags jsonEncodedFlags =
+    case Json.Decode.decodeValue flagsDecoder jsonEncodedFlags of
+        Ok decodedFlags ->
+            decodedFlags.apiUrl
+
+        Err _ ->
+            "http://localhost:4000/things"
 
 
 noContent : Model
@@ -41,10 +64,10 @@ errorContent items _ =
     { items = items, error = Just "Something went wrong." }
 
 
-getData : Cmd Msg
-getData =
+getDataFrom : String -> Cmd Msg
+getDataFrom apiUrl =
     Http.get
-        { url = "http://localhost:4000/things"
+        { url = apiUrl
         , expect = Http.expectJson DataReceived (Json.Decode.list itemDecoder)
         }
 
@@ -54,6 +77,12 @@ itemDecoder =
     map2 Item
         (field "title" string)
         (field "description" string)
+
+
+flagsDecoder : Decoder Flags
+flagsDecoder =
+    Json.Decode.map Flags
+        (field "apiUrl" string)
 
 
 

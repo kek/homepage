@@ -42,5 +42,6 @@ liveSocket.connect()
 window.liveSocket = liveSocket
 
 Elm.Main.init({
-    node: document.getElementById('elm-app')
+    node: document.getElementById('elm-app'),
+    flags: { apiUrl: window.location.origin + "/things" },
 });
