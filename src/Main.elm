@@ -1,7 +1,7 @@
 module Main exposing (..)
 
 import Browser
-import Html exposing (Html, div, h2, p, text)
+import Html exposing (Html, div, h2, li, p, text, ul)
 import Http
 import Json.Decode exposing (Decoder, field, map2, string)
 import List exposing (map)
@@ -125,14 +125,16 @@ update msg model =
 
 view : Model -> Html Msg
 view model =
-    case model.error of
-        Just error ->
-            div [] [ text error ]
+    div []
+        (case model.error of
+            Just error ->
+                [ text error ]
 
-        Nothing ->
-            div [] (map viewItem model.items)
+            Nothing ->
+                map viewItem model.items
+        )
 
 
 viewItem : Item -> Html Msg
 viewItem item =
-    div [] [ h2 [] [ text item.title ], p [] [ text item.description ] ]
+    li [] [ h2 [] [ text item.title ], p [] [ text item.description ] ]
