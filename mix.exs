@@ -47,7 +47,8 @@ defmodule Hello.MixProject do
       {:gettext, "~> 0.20"},
       {:jason, "~> 1.2"},
       {:dns_cluster, "~> 0.1.1"},
-      {:plug_cowboy, "~> 2.5"}
+      {:plug_cowboy, "~> 2.5"},
+      {:exsync, "~> 0.2", only: :dev}
     ]
   end
 
@@ -61,7 +62,8 @@ defmodule Hello.MixProject do
     [
       setup: ["deps.get", "assets.setup", "assets.build"],
       test: ["test"],
-      "phx.server": ["compile.elm", "phx.server"],
+      "phx.server": ["phx.server"],
+      compile: ["compile.elm", "compile"],
       "assets.setup": ["tailwind.install --if-missing", "esbuild.install --if-missing"],
       "assets.build": ["tailwind default", "esbuild default"],
       "assets.deploy": [
