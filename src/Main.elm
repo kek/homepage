@@ -1,7 +1,8 @@
 module Main exposing (..)
 
 import Browser
-import Html exposing (Html, div, h2, li, p, text, ul)
+import Html exposing (Html, div, h1, h2, li, p, text, ul)
+import Html.Attributes exposing (class)
 import Http
 import Json.Decode exposing (Decoder, field, map2, string)
 import List exposing (map)
@@ -126,15 +127,26 @@ update msg model =
 view : Model -> Html Msg
 view model =
     div []
-        (case model.error of
-            Just error ->
-                [ text error ]
+        [ h1 [ class "text-blue-950 mt-10 flex items-center text-sm font-semibold leading-6" ] [ text "Welcome to the example app!" ]
+        , ul [] (itemList model)
+        ]
 
-            Nothing ->
-                map viewItem model.items
-        )
+
+{-| Render list of posts.
+-}
+itemList : Model -> List (Html Msg)
+itemList model =
+    case model.error of
+        Just error ->
+            [ text error ]
+
+        Nothing ->
+            map viewItem model.items
 
 
 viewItem : Item -> Html Msg
 viewItem item =
-    li [] [ h2 [] [ text item.title ], p [] [ text item.description ] ]
+    li []
+        [ h2 [] [ text item.title ]
+        , p [] [ text item.description ]
+        ]
