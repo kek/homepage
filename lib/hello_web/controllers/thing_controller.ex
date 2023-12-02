@@ -3,8 +3,8 @@ defmodule HelloWeb.ThingController do
 
   def index(conn, _params) do
     things = [
-      %{title: "Thing 1", description: "yes"},
-      %{title: "Thing 2", description: "maybe not"}
+      %{title: "Thing 1", description: "yes\n\nno"},
+      %{title: "Thing 2", description: "maybe not\n\nor perhaps"}
     ]
 
     conn

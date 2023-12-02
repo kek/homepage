@@ -1,11 +1,15 @@
 module Main exposing (..)
 
 import Browser
-import Html exposing (Html, div, h1, h2, li, p, text, ul)
+import Html exposing (Html, a, div, h1, h2, li, p, text, ul)
 import Html.Attributes exposing (class)
 import Http
 import Json.Decode exposing (Decoder, field, map2, string)
 import List exposing (map)
+import Markdown.Parser
+import Markdown.Renderer
+import Parser exposing (Problem)
+import Parser.Advanced exposing (DeadEnd)
 
 
 
@@ -127,7 +131,7 @@ update msg model =
 view : Model -> Html Msg
 view model =
     div []
-        [ h1 [ class "text-blue-950 mt-10 flex items-center text-sm font-semibold leading-6" ] [ text "Welcome to the example app!" ]
+        [ h1 [ class "text-blue-950 mt-10 flex items-center text-sm font-semibold leading-6" ] [ text "Welcomes to the example app!" ]
         , ul [] (itemList model)
         ]
 
@@ -144,9 +148,31 @@ itemList model =
             map viewItem model.items
 
 
+deadEndsToString : List (DeadEnd String Problem) -> String
+deadEndsToString deadEnds =
+    deadEnds
+        |> List.map Markdown.Parser.deadEndToString
+        |> String.join "\n"
+
+
+render : Markdown.Renderer.Renderer view -> String -> Result String (List view)
+render renderer markdown =
+    markdown
+        |> Markdown.Parser.parse
+        |> Result.mapError deadEndsToString
+        |> Result.andThen (\ast -> Markdown.Renderer.render renderer ast)
+
+
 viewItem : Item -> Html Msg
 viewItem item =
     li []
         [ h2 [] [ text item.title ]
-        , p [] [ text item.description ]
+        , p []
+            (case render Markdown.Renderer.defaultHtmlRenderer item.description of
+                Ok html ->
+                    html
+
+                Err error ->
+                    [ text error ]
+            )
         ]
