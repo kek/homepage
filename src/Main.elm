@@ -1,7 +1,7 @@
 module Main exposing (..)
 
 import Browser
-import Html exposing (Html, a, div, h1, h2, li, p, text, ul)
+import Html exposing (Html, a, article, div, h1, h2, li, p, text, ul)
 import Html.Attributes as Attr exposing (class)
 import Http
 import Json.Decode exposing (Decoder, field, map2, string)
@@ -132,10 +132,7 @@ update msg model =
 
 view : Model -> Html Msg
 view model =
-    div []
-        [ h1 [ class "text-blue-950 mt-10 flex items-center text-sm font-semibold leading-6" ] [ text "Welcomes to the example app!" ]
-        , ul [] (itemList model)
-        ]
+    div [] (itemList model)
 
 
 {-| Render list of posts.
@@ -167,17 +164,14 @@ render renderer markdown =
 
 viewItem : Item -> Html Msg
 viewItem item =
-    li []
-        [ h2 [] [ text item.title ]
-        , div []
-            (case render articleRenderer item.description of
-                Ok html ->
-                    html
+    article []
+        (case render articleRenderer item.description of
+            Ok html ->
+                html
 
-                Err error ->
-                    [ text error ]
-            )
-        ]
+            Err error ->
+                [ text error ]
+        )
 
 
 articleRenderer : Markdown.Renderer.Renderer (Html msg)
@@ -186,10 +180,10 @@ articleRenderer =
         \{ level, children } ->
             case level of
                 Block.H1 ->
-                    Html.h3 [ class "h-32" ] children
+                    Html.h3 [ class "pt-8 pb-2 px-4 font-bold text-2xl" ] children
 
                 Block.H2 ->
-                    Html.h4 [ class "h-24" ] children
+                    Html.h4 [ class "pt-4 pb-2 px-4 font-bold text-xl" ] children
 
                 Block.H3 ->
                     Html.h5 [] children
@@ -202,7 +196,7 @@ articleRenderer =
 
                 Block.H6 ->
                     Html.h6 [] children
-    , paragraph = Html.p [ class "h-20" ]
+    , paragraph = Html.p [ class "py-2 px-4 font-serif" ]
     , hardLineBreak = Html.br [] []
     , blockQuote = Html.blockquote []
     , strong =
@@ -246,7 +240,7 @@ articleRenderer =
         Html.text
     , unorderedList =
         \items ->
-            Html.ul []
+            Html.ul [ class "px-10" ]
                 (items
                     |> List.map
                         (\item ->
@@ -275,7 +269,7 @@ articleRenderer =
                                                         ]
                                                         []
                                     in
-                                    Html.li [] (checkbox :: children)
+                                    Html.li [ class "list-disc font-serif" ] (checkbox :: children)
                         )
                 )
     , orderedList =
