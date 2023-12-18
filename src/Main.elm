@@ -132,7 +132,7 @@ update msg model =
 
 view : Model -> Html Msg
 view model =
-    div [] (itemList model)
+    div [ class "container mx-auto max-w-xl" ] (itemList model)
 
 
 {-| Render list of posts.
