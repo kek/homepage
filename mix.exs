@@ -48,7 +48,8 @@ defmodule Hello.MixProject do
       {:jason, "~> 1.2"},
       {:dns_cluster, "~> 0.1.1"},
       {:plug_cowboy, "~> 2.5"},
-      {:exsync, "~> 0.2", only: :dev}
+      {:exsync, "~> 0.2", only: :dev},
+      {:nimble_parsec, "~> 1.4"}
     ]
   end
 
