@@ -8,7 +8,7 @@ defmodule Hello.Gemtext do
       |> ascii_string([?a..?z, ?-], min: 1)
       |> string(".gmi")
       |> wrap()
-      |> map(:whatever)
+      |> map({Enum, :join, []})
       |> tag(:file)
       |> ignore(string(" "))
       |> tag(ascii_string([?a..?z, 32, ?A..?Z], min: 1), :title)
@@ -21,10 +21,5 @@ defmodule Hello.Gemtext do
   def table_of_contents(gemtext) do
     {:ok, data, _, _, _, _} = links(gemtext)
     data
-  end
-
-  def whatever(x) do
-    IO.inspect(x, label: "Hey")
-    Enum.join(x) |> IO.inspect(label: "Joined")
   end
 end
