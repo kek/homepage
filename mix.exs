@@ -49,7 +49,8 @@ defmodule Hello.MixProject do
       {:dns_cluster, "~> 0.1.1"},
       {:plug_cowboy, "~> 2.5"},
       {:exsync, "~> 0.2", only: :dev},
-      {:nimble_parsec, "~> 1.4"}
+      {:nimble_parsec, "~> 1.4"},
+      {:mix_test_watch, "~> 1.1", only: :dev, runtime: false}
     ]
   end
 

@@ -1,5 +1,6 @@
 defmodule HelloWeb.ThingController do
   use HelloWeb, :controller
+  require Logger
 
   def index(conn, _params) do
     content_directories = [
@@ -12,12 +13,14 @@ defmodule HelloWeb.ThingController do
 
     things =
       if content_directory do
-        File.ls!(content_directory)
-        |> Enum.reject(&(&1 == "index.gmi"))
-        |> Enum.map(fn file ->
+        index = File.read!("#{content_directory}/index.gmi") |> Hello.Gemtext.table_of_contents()
+        Logger.debug(inspect(index))
+
+        index
+        |> Enum.map(fn [file: [file], title: [title]] ->
           file_path = Path.join(content_directory, file)
           file_contents = File.read!(file_path)
-          %{title: file, description: file_contents}
+          %{title: title, description: file_contents}
         end)
       else
         [
