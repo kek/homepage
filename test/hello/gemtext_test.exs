@@ -4,6 +4,10 @@ defmodule Hello.GemtextTest do
 
   test "Parse index.gmi" do
     input = """
+    # A Gemtext document
+
+    These are some texts...!?
+
     => some-file.gmi Not this one
     => another-document.gmi But this one
     """

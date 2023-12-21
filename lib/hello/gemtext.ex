@@ -18,29 +18,61 @@ defmodule Hello.Gemtext.Helpers do
 
   def title(combinator \\ empty()) do
     combinator
-    |> tag(ascii_string([?a..?z, 32, ?A..?Z], min: 1), :title)
+    |> tag(text(), :title)
+  end
+
+  def text(combinator \\ empty()) do
+    ascii_string(combinator, [32..127], min: 1)
+  end
+
+  def link do
+    link_marker()
+    |> filename()
+    |> ignore(string(" "))
+    |> title()
+    |> ignore(string("\n"))
+    |> wrap()
+  end
+
+  def paragraph do
+    text()
+    |> ignore()
+    |> string("\n")
+    |> ignore()
+  end
+
+  def blank_line do
+    string("\n")
+    |> ignore()
   end
 end
 
 defmodule Hello.Gemtext do
   import NimbleParsec
   import Hello.Gemtext.Helpers
+  require Logger
 
   defparsec(
-    :links,
+    :parse,
     times(
-      link_marker()
-      |> filename()
-      |> ignore(string(" "))
-      |> title()
-      |> ignore(string("\n"))
-      |> wrap(),
+      choice([
+        link(),
+        paragraph(),
+        blank_line()
+      ]),
       min: 1
-    )
+    ),
+    export_metadata: true
   )
 
   def table_of_contents(gemtext) do
-    {:ok, data, _, _, _, _} = links(gemtext)
-    data
+    case parse(gemtext) do
+      {:ok, data, _, _, _, _} ->
+        data
+
+      {:error, message, _, _, _, _} ->
+        Logger.error(message)
+        {:error, message}
+    end
   end
 end
