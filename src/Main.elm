@@ -28,10 +28,6 @@ main =
         }
 
 
-
--- Elm code
-
-
 type alias Flags =
     { apiUrl : String
     }
@@ -132,16 +128,21 @@ update msg model =
 
 view : Model -> Html Msg
 view model =
-    div [ class "container mx-auto max-w-xl" ] (itemList model)
+    div [ class "container mx-auto max-w-xl" ]
+        [ p [ class paragraphStyleClass ] [ text "" ]
+        , div [] (itemList model)
+        ]
 
 
-{-| Render list of posts.
--}
 itemList : Model -> List (Html Msg)
 itemList model =
     case model.error of
         Just error ->
-            [ text error ]
+            [ div []
+                [ h1 [] [ text "Error." ]
+                , p [ class paragraphStyleClass ] [ text error ]
+                ]
+            ]
 
         Nothing ->
             map viewItem model.items
@@ -196,7 +197,7 @@ articleRenderer =
 
                 Block.H6 ->
                     Html.h6 [] children
-    , paragraph = Html.p [ class "py-2 px-4 font-serif" ]
+    , paragraph = Html.p [ class paragraphStyleClass ]
     , hardLineBreak = Html.br [] []
     , blockQuote = Html.blockquote []
     , strong =
@@ -360,3 +361,8 @@ articleRenderer =
             in
             Html.td attrs
     }
+
+
+paragraphStyleClass : String
+paragraphStyleClass =
+    "py-2 px-4 font-serif"
